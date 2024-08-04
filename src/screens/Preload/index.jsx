@@ -19,17 +19,16 @@ export default function Preload({navigation}) {
   const {getUserCache, signIn} = useContext(AuthUserContext);
 
   const loginUser = async () => {
-    // if (await getUserCache()) {
-    //   navigation.reset({
-    //     index: 0,
-    //     routes: [{name: 'AppStack'}],
-    //   });
-    // }
-    navigation.navigate('SignIn');
+    if (await getUserCache()) {
+      navigation.reset({
+        index: 0,
+        routes: [{name: 'AppStack'}],
+      });
+    }
   };
 
   useEffect(() => {
-    loginUser();
+    //loginUser();
   }, []);
 
   const navigateToPage = page => {
@@ -47,7 +46,7 @@ export default function Preload({navigation}) {
           <Pressable
             className="bg-accent-secundary-700 py-3 px-5 self-end rounded-full mr-5 mt-5 hover:bg-accent-secundary-500 active:bg-accent-secundary-900"
             onPress={() => {
-              navigateToPage('SignUp');
+            navigateToPage('SignUp');
             }}>
             <Text className="text-white text-2xl font-semibold">
               Quero Ajudar
@@ -84,9 +83,11 @@ export default function Preload({navigation}) {
         <View className="h-[6vh] bg-primary-500 justify-center items-center">
           <Text className="text-black">
             Ja tem uma conta?{' '}
-            <Text onPress={() => {
-              navigateToPage('SignIn');
-            }} className="text-white underline">
+            <Text
+              onPress={() => {
+                navigateToPage('SignIn');
+              }}
+              className="text-white underline">
               Faça login
             </Text>
           </Text>

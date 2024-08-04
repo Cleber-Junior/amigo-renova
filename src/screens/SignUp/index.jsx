@@ -4,7 +4,10 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {AuthUserContext} from '../../context/AuthUserProvider';
 import Animated from 'react-native-reanimated';
 
-const SignUpScreen = ({navigation}) => {
+const SignUp = ({navigation}) => {
+  
+  
+
   return (
     <SafeAreaView>
       <ScrollView>
@@ -14,4 +17,4 @@ const SignUpScreen = ({navigation}) => {
   );
 };
 
-export default SignUpScreen;
+export default SignUp;
